@@ -19,6 +19,25 @@ class RoomList extends Component {
     });
   }
 
+  createRoom(e) {
+    e.preventDefault();
+    if (!this.state.newRoomName) {
+      return;
+    }
+    if (this.state.rooms.map(room => room.name === this.state.newRoomName)) {
+      alert("Room already exists. Please pick a new name");
+      return;
+    }
+    this.roomsRef.push({
+      name: this.state.newRoomName
+    });
+    this.setState({ newRoomName: "" });
+  }
+
+  handleChange(e) {
+    this.setState({ newRoomName: e.target.value });
+  }
+
   render() {
     return (
       <div className="RoomList">
@@ -27,6 +46,20 @@ class RoomList extends Component {
             {room.name}
           </div>
         ))}
+
+        <div className="CreateRoomForm">
+          <form onSubmit={e => this.createRoom(e)}>
+            <legend>Create a new chat room</legend>
+            <input
+              type="text"
+              name="new-room"
+              placeholder="New Room Name"
+              value={this.state.newRoomName}
+              onChange={e => this.handleChange(e)}
+            />
+            <button type="submit">Create!</button>
+          </form>
+        </div>
       </div>
     );
   }
