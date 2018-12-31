@@ -5,7 +5,8 @@ class RoomList extends Component {
     super(props);
 
     this.state = {
-      rooms: []
+      rooms: [],
+      newRoomName: ""
     };
 
     this.roomsRef = this.props.firebase.database().ref("rooms");
@@ -24,14 +25,23 @@ class RoomList extends Component {
     if (!this.state.newRoomName) {
       return;
     }
-    if (this.state.rooms.map(room => room.name === this.state.newRoomName)) {
+    /*  if (
+      this.state.rooms.map(room =>
+        room.name.includes(this.state.newRoomName.name)
+      ) === true
+    ) {
       alert("Room already exists. Please pick a new name");
       return;
+      console.log(this.state.rooms.map(room => room.name));
     }
+  */
+
     this.roomsRef.push({
       name: this.state.newRoomName
     });
     this.setState({ newRoomName: "" });
+
+    console.log(this.state.rooms);
   }
 
   handleChange(e) {
