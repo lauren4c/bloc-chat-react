@@ -40,8 +40,6 @@ class RoomList extends Component {
       name: this.state.newRoomName
     });
     this.setState({ newRoomName: "" });
-
-    console.log(this.state.rooms);
   }
 
   handleChange(e) {
@@ -51,9 +49,13 @@ class RoomList extends Component {
   render() {
     return (
       <div className="RoomList">
-        {this.state.rooms.map((room, index) => (
-          <div className="RoomName" key={index}>
-            {room.name}
+        {this.state.rooms.map((roomID, index) => (
+          <div
+            className="RoomID"
+            key={index}
+            onClick={e => this.props.setActiveRoom(roomID)}
+          >
+            {roomID.name}
           </div>
         ))}
 
