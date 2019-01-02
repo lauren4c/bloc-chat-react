@@ -25,16 +25,6 @@ class RoomList extends Component {
     if (!this.state.newRoomName) {
       return;
     }
-    /*  if (
-      this.state.rooms.map(room =>
-        room.name.includes(this.state.newRoomName.name)
-      ) === true
-    ) {
-      alert("Room already exists. Please pick a new name");
-      return;
-      console.log(this.state.rooms.map(room => room.name));
-    }
-  */
 
     this.roomsRef.push({
       name: this.state.newRoomName
@@ -49,6 +39,7 @@ class RoomList extends Component {
   render() {
     return (
       <div className="RoomList">
+        <h1>Bloc Chat</h1>
         {this.state.rooms.map((roomID, index) => (
           <div
             className="RoomID"
@@ -61,11 +52,10 @@ class RoomList extends Component {
 
         <div className="CreateRoomForm">
           <form onSubmit={e => this.createRoom(e)}>
-            <legend>Create a new chat room</legend>
             <input
               type="text"
               name="new-room"
-              placeholder="New Room Name"
+              placeholder="Create a New Room"
               value={this.state.newRoomName}
               onChange={e => this.handleChange(e)}
             />
