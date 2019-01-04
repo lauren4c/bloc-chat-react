@@ -13,6 +13,10 @@ class User extends Component {
     });
   }
 
+  componentWillUnmount() {
+    this.props.setUser = null;
+  }
+
   googleSignin() {
     const provider = new this.props.firebase.auth.GoogleAuthProvider();
     this.props.firebase
@@ -42,18 +46,27 @@ class User extends Component {
       );
   }
 
+  showButton(user) {
+    if (this.props.user === null) {
+      return (
+        <button className="sign-in" onClick={() => this.googleSignin(this)}>
+          Sign In
+        </button>
+      );
+    } else
+      return (
+        <button className="sign-out" onClick={() => this.googleSignout(this)}>
+          Sign Out
+        </button>
+      );
+  }
   render() {
     return (
       <div className="sign-in-out">
         <h4>
           Hello, {this.props.user ? this.props.user.displayName : "Guest"}
         </h4>
-        <button className="sign-in" onClick={() => this.googleSignin(this)}>
-          Sign In
-        </button>
-        <button className="sign-out" onClick={() => this.googleSignout(this)}>
-          Sign Out
-        </button>
+        {this.showButton()}
       </div>
     );
   }

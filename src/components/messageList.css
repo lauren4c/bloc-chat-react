@@ -1,0 +1,39 @@
+.Message-List {
+  display: grid;
+  grid-row: 1fr 80px;
+  height: 100%;
+  grid-column: 1fr;
+  grid-template-areas:
+    "content"
+    "footer";
+}
+.MessagesInRoom {
+  background-color: white;
+  text-align: left;
+  padding-left: 1em;
+  align-self: start;
+  grid-area: content;
+}
+
+ul {
+  list-style-type: none;
+  line-height: 40px;
+}
+
+ul:nth-child(even) {
+  background: white;
+}
+ul:nth-child(odd) {
+  background: #cccccc;
+}
+
+.CreateNewMessage {
+  grid-area: footer;
+  background-color: pink;
+  padding: 10px;
+}
+
+.CreateNewMessage input {
+  width: 90%;
+  height: 25px;
+}
