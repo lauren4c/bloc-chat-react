@@ -1,6 +1,6 @@
 .Message-List {
   display: grid;
-  grid-row: 1fr 80px;
+  grid-template-rows: auto 70px;
   height: 100%;
   grid-column: 1fr;
   grid-template-areas:
@@ -29,11 +29,13 @@ ul:nth-child(odd) {
 
 .CreateNewMessage {
   grid-area: footer;
-  background-color: pink;
+  background-color: white;
   padding: 10px;
 }
 
 .CreateNewMessage input {
   width: 90%;
   height: 25px;
+  padding: 5px;
+  margin-right: 10px;
 }

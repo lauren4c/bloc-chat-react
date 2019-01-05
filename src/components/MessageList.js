@@ -42,6 +42,23 @@ class MessageList extends Component {
     this.setState({ newMessage: e.target.value });
   }
 
+  //Don't show message bar until user is in a room - WORKS, BUT IF STATEMENT SEEMS ODD
+  showMessageBar() {
+    if (this.props.activeRoomID.name !== this.props.activeRoomID.key) {
+      return (
+        <form onSubmit={e => this.createMessage(e)}>
+          <input
+            type="text"
+            name="new-message"
+            placeholder="Write your message here..."
+            value={this.state.newMessage}
+            onChange={e => this.handleChange(e)}
+          />
+          <button type="submit">Send</button>
+        </form>
+      );
+    } else return;
+  }
   render() {
     return (
       <div className="Message-List">
@@ -56,24 +73,13 @@ class MessageList extends Component {
             .map(message => (
               <ul className="Message-content" key={message.key}>
                 <li>
-                  <b>{message.username}:</b> {message.content} ({message.sentAt}
-                  )
+                  <b>{message.username}:</b> {message.content} (
+                  {new Date(message.sentAt).toDateString()})
                 </li>
               </ul>
             ))}
         </div>
-        <div className="CreateNewMessage">
-          <form onSubmit={e => this.createMessage(e)}>
-            <input
-              type="text"
-              name="new-message"
-              placeholder="Write your message here..."
-              value={this.state.newMessage}
-              onChange={e => this.handleChange(e)}
-            />
-            <button type="submit">Send</button>
-          </form>
-        </div>
+        <div className="CreateNewMessage">{this.showMessageBar()}</div>
       </div>
     );
   }
