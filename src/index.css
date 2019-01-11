@@ -13,6 +13,7 @@ code {
     monospace;
 }
 
-ul {
-  text-decoration: none;
+h2 {
+  color: black;
+  font-size: 1.5em;
 }

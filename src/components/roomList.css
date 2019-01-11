@@ -1,0 +1,53 @@
+.room-list {
+  background-color: #282c34;
+  min-height: 100vh;
+  font-size: 1.5em;
+  color: white;
+  line-height: 1.6em;
+  text-align: left;
+  padding-left: 2em;
+  grid-area: aside;
+  line-height: 1em;
+}
+.new-room-modal {
+  padding-bottom: 10px;
+}
+
+.New-room-form {
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+Modal form {
+  margin: auto;
+  align: center;
+}
+
+.New-room-form input {
+  width: 90%;
+  height: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.RoomID {
+  padding-bottom: 0px;
+  padding-top: 25px;
+}
+
+span:hover,
+.rename-room:hover {
+  color: #13cbf9;
+}
+
+.rename-room {
+  display: inline-block;
+}
+
+.delete-rename {
+  padding: 0px;
+  font-size: 0.65em;
+  color: gray;
+  display: inline-block;
+}

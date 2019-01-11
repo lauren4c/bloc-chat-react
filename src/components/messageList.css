@@ -10,21 +10,25 @@
 .MessagesInRoom {
   background-color: white;
   text-align: left;
-  padding-left: 1em;
+  margin-left: 1em;
   align-self: start;
   grid-area: content;
+  width: auto;
 }
 
 ul {
   list-style-type: none;
-  line-height: 40px;
+  line-height: 150%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 10px;
 }
 
 ul:nth-child(even) {
   background: white;
 }
 ul:nth-child(odd) {
-  background: #cccccc;
+  background: #e2d8f7;
 }
 
 .CreateNewMessage {
@@ -34,8 +38,28 @@ ul:nth-child(odd) {
 }
 
 .CreateNewMessage input {
-  width: 90%;
+  width: 85%;
   height: 25px;
   padding: 5px;
   margin-right: 10px;
+}
+
+.Message-Button {
+  display: inline-block;
+  border: none;
+  height: 40px;
+  padding: 10px;
+  width: 10%;
+  text-decoration: none;
+  background: #8552f2;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.message-date {
+  position: absolute;
+  right: 20px;
+  font-size: 0.7em;
 }

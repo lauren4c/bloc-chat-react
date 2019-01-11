@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 import RoomList from "./components/RoomList";
 import MessageList from "./components/MessageList";
 import User from "./components/user";
+//import Popup from "./components/Modal";
 
 // Initialize Firebase
 var config = {
@@ -23,7 +24,8 @@ class App extends Component {
     this.state = {
       activeRoom: "",
       user: null,
-      message: ""
+      message: "",
+      visible: false
     };
   }
   setActiveRoom(roomID) {
@@ -50,6 +52,7 @@ class App extends Component {
           <RoomList
             firebase={firebase}
             setActiveRoom={this.setActiveRoom.bind(this)}
+            activeRoomID={this.state.activeRoom}
           />
         </aside>
         <main className="message-list">

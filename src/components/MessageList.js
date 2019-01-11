@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./messageList.css";
-
 class MessageList extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +41,6 @@ class MessageList extends Component {
     this.setState({ newMessage: e.target.value });
   }
 
-  //Don't show message bar until user is in a room - WORKS, BUT IF STATEMENT SEEMS ODD
   showMessageBar() {
     if (this.props.activeRoomID.name !== this.props.activeRoomID.key) {
       return (
@@ -54,11 +52,39 @@ class MessageList extends Component {
             value={this.state.newMessage}
             onChange={e => this.handleChange(e)}
           />
-          <button type="submit">Send</button>
+          <button className="Message-Button" type="submit">
+            Send
+          </button>
         </form>
       );
     } else return;
   }
+
+  formatDate(d) {
+    var hours = d.getHours().toString();
+    var minutes = d.getMinutes().toString();
+    if (minutes < 9) {
+      minutes = "0" + minutes;
+    } else if (minutes.length === 1) {
+      minutes = minutes + "0";
+    }
+    var month = d.getMonth().toString();
+    var day = d.getDate().toString();
+    var year = d.getFullYear();
+    year = year.toString().substr(-2);
+    month = month + 1;
+    if (month.length === 1) {
+      month = "0" + month;
+    }
+
+    //if day is between 1-9 pad right with a 0 for two digits
+    if (day.length === 1) {
+      day = "0" + day;
+    }
+
+    return hours + ":" + minutes + " " + month + "/" + day + "/" + year;
+  }
+
   render() {
     return (
       <div className="Message-List">
@@ -73,8 +99,10 @@ class MessageList extends Component {
             .map(message => (
               <ul className="Message-content" key={message.key}>
                 <li>
-                  <b>{message.username}:</b> {message.content} (
-                  {new Date(message.sentAt).toDateString()})
+                  <b>{message.username}:</b> {message.content}{" "}
+                  <span className="message-date">
+                    ({this.formatDate(new Date(message.sentAt))})
+                  </span>
                 </li>
               </ul>
             ))}
