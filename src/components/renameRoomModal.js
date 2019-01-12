@@ -23,8 +23,10 @@ class RenameRoom extends Component {
 
   render() {
     return (
-      <div className="Rename-Room-Modal">
-        <span onClick={() => this.openRenameModal()}>Rename</span>
+      <section>
+        <span className="rename-text" onClick={() => this.openRenameModal()}>
+          Rename
+        </span>
         <Modal
           visible={this.state.visible}
           width="400"
@@ -32,7 +34,7 @@ class RenameRoom extends Component {
           effect="fadeInUp"
           onClickAway={() => this.closeRenameModal()}
         >
-          <div className="rename-room">
+          <div className="modal-form">
             <form
               onSubmit={e =>
                 this.props.renameRoom(e, this.props.roomID) +
@@ -42,7 +44,7 @@ class RenameRoom extends Component {
               <h2>Rename This Room</h2>
               <input
                 type="text"
-                className="Rename-text"
+                className="modal-input"
                 placeholder={this.props.roomID.name}
                 value={this.state.newRoomName}
                 onChange={e => this.props.handleChange(e)}
@@ -51,7 +53,7 @@ class RenameRoom extends Component {
             </form>
           </div>
         </Modal>
-      </div>
+      </section>
     );
   }
 }

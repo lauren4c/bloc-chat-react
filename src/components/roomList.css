@@ -9,45 +9,40 @@
   grid-area: aside;
   line-height: 1em;
 }
-.new-room-modal {
-  padding-bottom: 10px;
+
+.Room-name {
+  padding-bottom: 0px;
+  padding-top: 25px;
 }
 
-.New-room-form {
+.Delete-text:hover,
+.rename-text:hover {
+  color: #13cbf9;
+}
+
+.rename-room-modal,
+.Delete-text,
+.inline-block {
+  display: inline-block;
+  padding: 0px;
+  font-size: 0.65em;
+  color: gray;
+}
+
+Modal {
   display: grid;
   height: 100%;
   width: 100%;
 }
 
-Modal form {
+.modal-form {
   margin: auto;
-  align: center;
+  padding: 30px;
 }
 
-.New-room-form input {
+.modal-input {
   width: 90%;
   height: 20px;
   padding: 5px;
   margin-bottom: 10px;
-}
-
-.RoomID {
-  padding-bottom: 0px;
-  padding-top: 25px;
-}
-
-span:hover,
-.rename-room:hover {
-  color: #13cbf9;
-}
-
-.rename-room {
-  display: inline-block;
-}
-
-.delete-rename {
-  padding: 0px;
-  font-size: 0.65em;
-  color: gray;
-  display: inline-block;
 }

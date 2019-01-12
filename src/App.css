@@ -38,7 +38,8 @@ button {
 
 h1 {
   font-size: 2em;
-  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background: linear-gradient(90deg, #c594f7, #13cbf9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

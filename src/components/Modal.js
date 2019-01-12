@@ -34,7 +34,7 @@ class NewRoomModal extends Component {
           effect="fadeInUp"
           onClickAway={() => this.closeNewRoomModal()}
         >
-          <div className="New-room-form">
+          <div className="modal-form">
             <form
               onSubmit={e =>
                 this.props.createRoom(e) + this.closeNewRoomModal()
@@ -43,7 +43,7 @@ class NewRoomModal extends Component {
               <h2>Create A New Room</h2>
               <input
                 type="text"
-                className="new-room"
+                className="modal-input"
                 placeholder="New Room Name"
                 onChange={e => this.props.handleChange(e)}
               />

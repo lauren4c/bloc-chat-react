@@ -11,7 +11,6 @@ class RoomList extends Component {
     this.state = {
       rooms: [],
       newRoomName: ""
-      //    visible: false
     };
 
     this.roomsRef = this.props.firebase.database().ref("rooms");
@@ -52,31 +51,7 @@ class RoomList extends Component {
   componentDidUpdate() {
     console.log(this.state);
   }
-  /*
-  openNewRoomModal() {
-    this.setState({
-      visible: true
-    });
-  }
 
-  closeNewRoommModal() {
-    this.setState({
-      visible: false
-    });
-  }
-
-  openRenameModal() {
-    this.setState({
-      visible: true
-    });
-  }
-
-  closeRenameModal() {
-    this.setState({
-      visible: false
-    });
-  }
-*/
   createRoom(e) {
     e.preventDefault();
     if (!this.state.newRoomName) {
@@ -108,7 +83,7 @@ class RoomList extends Component {
   render() {
     return (
       <div className="RoomList-section">
-        <h1>Bloc Chat</h1>
+        <h1>Script[it]</h1>
         <NewRoomModal
           newRoomName={this.state.newRoomName}
           handleChange={this.handleChange.bind(this)}
@@ -118,7 +93,7 @@ class RoomList extends Component {
         {this.state.rooms.map((roomID, index) => (
           <div key={index}>
             <div
-              className="RoomID"
+              className="Room-name"
               onClick={e => this.props.setActiveRoom(roomID)}
             >
               {roomID.name}{" "}
@@ -135,8 +110,8 @@ class RoomList extends Component {
               >
                 Delete
               </span>
-              {" / "}
-              <div className="rename-room">
+              <span className="inline-block">{" / "}</span>
+              <div className="rename-room-modal">
                 <RenameRoom
                   newRoomName={this.state.newRoomName}
                   handleChange={this.handleChange.bind(this)}
@@ -152,15 +127,3 @@ class RoomList extends Component {
   }
 }
 export default RoomList;
-
-/*
-<form onSubmit={e => this.renameRoom(e, roomID)}>
-  <input
-    type="text"
-    className="Rename-text"
-    value={this.state.newRoomName}
-    onChange={e => this.handleChange(e)}
-  />
-  <button type="submit">Rename</button>
-</form>
-*/
