@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./messageList.css";
+import Moment from "react-moment";
 class MessageList extends Component {
   constructor(props) {
     super(props);
@@ -60,31 +61,6 @@ class MessageList extends Component {
     } else return;
   }
 
-  formatDate(d) {
-    var hours = d.getHours().toString();
-    var minutes = d.getMinutes().toString();
-    if (minutes < 9) {
-      minutes = "0" + minutes;
-    } else if (minutes.length === 1) {
-      minutes = minutes + "0";
-    }
-    var month = d.getMonth().toString();
-    var day = d.getDate().toString();
-    var year = d.getFullYear();
-    year = year.toString().substr(-2);
-    month = month + 1;
-    if (month.length === 1) {
-      month = "0" + month;
-    }
-
-    //if day is between 1-9 pad right with a 0 for two digits
-    if (day.length === 1) {
-      day = "0" + day;
-    }
-
-    return hours + ":" + minutes + " " + month + "/" + day + "/" + year;
-  }
-
   render() {
     return (
       <div className="Message-List">
@@ -101,7 +77,7 @@ class MessageList extends Component {
                 <li>
                   <b>{message.username}:</b> {message.content}{" "}
                   <span className="message-date">
-                    ({this.formatDate(new Date(message.sentAt))})
+                    <Moment date={message.sentAt} />
                   </span>
                 </li>
               </ul>
