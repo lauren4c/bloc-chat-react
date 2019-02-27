@@ -1,3 +1,5 @@
+Script[it] is an SPA created with HTML, CSS, JavaScript, JSX, Firebase, and React. Custom CSS design written on a Grid Template. A responsive, Flexbox version is in the works. See it live via Netlify: https://scriptit.netlify.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
