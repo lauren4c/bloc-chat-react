@@ -83,7 +83,6 @@ class RoomList extends Component {
   render() {
     return (
       <div className="RoomList-section">
-        <h1>Script[it]</h1>
         <NewRoomModal
           newRoomName={this.state.newRoomName}
           handleChange={this.handleChange.bind(this)}

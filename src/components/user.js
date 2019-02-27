@@ -62,11 +62,16 @@ class User extends Component {
   }
   render() {
     return (
-      <div className="sign-in-out">
-        {this.showButton()}
-        <h4>
-          Hello, {this.props.user ? this.props.user.displayName : "Guest"}
-        </h4>
+      <div className="header">
+        <div className="logo">
+          <h1>Script[it]</h1>
+        </div>
+        <div className="sign-in-out">
+          {this.showButton()}
+          <h4>
+            Hello, {this.props.user ? this.props.user.displayName : "Guest"}
+          </h4>
+        </div>
       </div>
     );
   }

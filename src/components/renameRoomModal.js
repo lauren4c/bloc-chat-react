@@ -23,7 +23,7 @@ class RenameRoom extends Component {
 
   render() {
     return (
-      <section>
+      <section className="modal-section">
         <span className="rename-text" onClick={() => this.openRenameModal()}>
           Rename
         </span>
